@@ -1,0 +1,32 @@
+<div class="split right">
+  <div class="centered">
+     <h2>Songs Details</h2>
+        <table border="5" style="border-color:skyblue; width:100%;">
+          
+          <thead>
+              <tr>
+                  <th>Title</th>
+                  <th>Duration</th>
+                  <th>Genre</th>
+                  <th>Action</th>
+                  
+              </tr>
+          </thead>
+            <tbody>
+              <tr *ngFor="let Songs of MiniservicesService.Songs">
+                  <td>{{Songs.title}}</td>
+                  <td>{{Songs.Duration}}</td>
+                  <td>{{Songs.Genre |  replace : ',' : '|' }}</td>
+                  <td>
+                    <mat-spinner-button [options]="fabSpinnerButtonOptions" (btnClick)="ondelete(Songs.id)"></mat-spinner-button>
+                    <button mat-fab color="primary" aria-label="Example icon button with a delete icon" 
+                     (click)="ondelete(Songs.id)">
+                    <mat-icon>delete</mat-icon> 
+  
+                  </button></td>
+              </tr>
+          </tbody>
+      </table>    
+  </div>
+  </div>
+  

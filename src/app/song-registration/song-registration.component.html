@@ -1,0 +1,33 @@
+<div class="split left">
+  <div class="centered">
+    <mat-card class="example-card">
+      <mat-card-title>Add Song</mat-card-title>
+      <mat-card-content>
+       
+          <div>
+            <mat-form-field>
+          <mat-label>Enter the song name</mat-label>
+          <input matInput [(ngModel)]="newsong"  required minlength="6">
+        </mat-form-field>     
+          </div>
+        <div>
+        <mat-form-field>
+          <mat-label>Song duration (minutes)</mat-label>
+          <input matInput [(ngModel)]="Duration" pattern="[0-9:]*" required placeholder="HH12:MM:SS" >
+        </mat-form-field>        
+        </div>
+
+        <div>
+        Genre  
+        <mat-selection-list [(ngModel)]="Genre" required>
+          <mat-list-option *ngFor="let Genre of GenreservicesService.GenreNamess;let i=index" [value]="Genre.title" >
+              {{Genre.title}}
+          </mat-list-option>
+      </mat-selection-list>     
+        </div>
+    </mat-card-content>         
+        <button mat-raised-button color="primary"   (click)="onSave()">Save</button>
+    </mat-card>
+  </div>
+</div>
+
